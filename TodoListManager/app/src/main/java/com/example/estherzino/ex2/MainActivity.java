@@ -1,12 +1,15 @@
 package com.example.estherzino.ex2;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -22,7 +25,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         list = new ArrayList<>();
         ListView lv = (ListView) findViewById(R.id.mainListView);
-        adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,list);
+        adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,list){
+            public View getView(int position, View ConvertView, ViewGroup parent){
+                View view = super.getView(position, ConvertView, parent);
+                TextView textView = (TextView)view.findViewById(android.R.id.text1);
+                if(position % 2 == 0)
+                    textView.setTextColor(Color.RED);
+                else
+                    textView.setTextColor(Color.BLUE);
+                return view;
+            }
+        };
         lv.setAdapter(adapter);
         lv.setOnItemLongClickListener(
                 new AdapterView.OnItemLongClickListener(){

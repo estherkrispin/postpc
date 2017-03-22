@@ -7,9 +7,17 @@
     tools:context="com.example.estherzino.ex2.Third"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete"
-        android:onClick="delete"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Delete"-->
+        <!--android:onClick="delete"/>-->
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:onClick="delete"
+        app:backgroundTint="@android:color/holo_blue_dark"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
 </LinearLayout>
